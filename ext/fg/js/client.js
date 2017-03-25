@@ -23,7 +23,7 @@ class Client {
         this.audio = {};
         this.lastMousePos = null;
         this.lastTextSource = null;
-        this.activateKey = 16;
+        this.activateKey = 17;
         this.activateBtn = 2;
         this.enabled = false;
         this.options = {};
@@ -48,7 +48,7 @@ class Client {
     
     onMouseMove(e) {
         this.lastMousePos = {x: e.clientX, y: e.clientY};
-        if (this.enabled && (e.shiftKey || e.which === this.activateBtn)) {
+        if (this.enabled && (e.ctrlKey || e.which === this.activateBtn)) {
             this.searchAt(this.lastMousePos);
         }
     }
@@ -56,7 +56,7 @@ class Client {
     
     onMouseDown(e) {
         this.lastMousePos = {x: e.clientX, y: e.clientY};
-        if (this.enabled && (e.shiftKey || e.which === this.activateBtn)) {
+        if (this.enabled && (e.ctrlKey || e.which === this.activateBtn)) {
             this.searchAt(this.lastMousePos);
         } else {
             this.hidePopup();

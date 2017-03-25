@@ -39,17 +39,17 @@ function hackTagsColor() {
         'abbr.'  : '#D111D3',
         'phrase.': '#8A8A91'
     };
-    
+
     [].forEach.call(document.querySelectorAll('.term-glossary'), function(div) {
     div.innerHTML = div.innerHTML.replace(/\b[a-z]+\./g, function(symbol) {
             if(colorMap[symbol]) {
-                return `<span class="highlight" style="background-color:${colorMap[symbol]}">${symbol}</span>`;
+                return `<span class="highlight" style="color:${colorMap[symbol]}">${symbol}</span>`;
             } else {
                 return symbol;
             }
         });
-    });    
-} 
+    });
+}
 
 function registerKanjiLinks() {
     for (let link of [].slice.call(document.getElementsByClassName('kanji-link'))) {

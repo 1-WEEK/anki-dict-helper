@@ -14,27 +14,27 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-
+ */ 
 /* common styles */
 
 body {
-    background-color: #fff;
-    color:            #333;
-    font-family:      "Open Sans", Arial, sans-serif;
-    font-size:        12px;
+    background-color: #f8f8f8;
+    color:            #34495e;
+    font-family:      Lato, system-ui, 'Inziu Roboto SC',sans-serif;
+    font-size:        14px;
     line-height:      1.5;
     overflow-y:       auto;
     margin:           6px;
 }
 
-
+strong, b {
+    font-family: 'PT Serif', serif;
+}
 .tag {
     border-radius:  2px;
     color:          #fff;
     cursor:         default;
     display:        inline;
-    font-size: 12px;
     font-weight:    normal;
     line-height:    1;
     padding:        0px 3px 0px 2px;
@@ -47,10 +47,12 @@ body {
     background-color: #8a8a91;
 }
 .tag-wordstar{
-    color:            #fdac00;
+    color:            #f66;
 }
 .tag-onlinedict {
-    background-color: #418ffe;
+    color: #418ffe;
+    font-style: italic;
+    font-family: 'Lato', serif;
 }
 
 .audio-bar,
@@ -77,15 +79,13 @@ body {
 
 /* term styles */
 .term-definition{
-    font-family: Helvetica, Arial, sans-serif;
-    margin-top:       5px;
-    background-color: #fff;
+    font-family: Lato, system-ui, 'Inziu Roboto SC',sans-serif;
 }
 
 .term-expression {
     margin:2px;
+    margin-top: 4px;
     padding: 0 3px;
-    border-bottom:   2px #666 solid;
 }
 
 .term-expression a {
@@ -94,16 +94,15 @@ body {
 
 .term-word{
     display:   inline-block;
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 15px;
     font-weight: 700;
+    font-family: 'PT Serif', serif;
 }
 
 .term-reading {
-    font-family:  arial;
     color:     #777;
     display:   inline-block;
-    font-size: 12px; 
+    /* font-family: sans-serif; */
 }
 
 .term-glossary {
@@ -121,21 +120,18 @@ body {
 
 .term-glossary li {
     display: block;
-    color: #000;
-    background-color : #fefefe;
-    border           : 1px solid;               
-    border-color     : #e5e6e9 #dfe0e4 #d0d1d5; 
-    border-radius    : 3px;                    
-    padding: 5px;
-    margin-top:3px;
+    color: #34495e;
+    background-color : #fff;
+    border-radius    : 3px;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    padding: 0.6em 0.6em;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.125);
 }
 
 .term-glossary li .highlight{
-    font-size: 12px;
-    border-radius: 4px;
-    color:white;
-    padding:0 3px;
-    margin-right:5px;
+    margin-right: 5px;
+    font-family: 'Monaco', monospace;
 }
 
 /* kanji styles */
@@ -165,4 +161,26 @@ body {
 
 .kanji-info dd {
     margin-left: 1.2em;
+}
+::-webkit-scrollbar{width:6px!important;height:6px!important;}
+body::-webkit-scrollbar{width:6 px!important;height:6px!important;}
+
+::-webkit-scrollbar-track{background:rgba(255,255,255,0.22)!important;border-radius:8px!important;}
+
+
+::-webkit-scrollbar-thumb{background-color: #dcdcdc !important;min-height:50px;border-radius:5px!important;}
+
+
+@keyframes fadein {
+0% {opacity: 0;}
+100% {}
+}
+
+body {
+animation-name: fadein;
+animation-duration: 0.4s;
+}
+
+.action-bar img, .audio-bar img {
+    height: 18px;
 }
