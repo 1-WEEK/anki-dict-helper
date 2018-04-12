@@ -44,10 +44,10 @@ class Yomichan {
         this.translator = new Translator();
         this.ankiweb = new Ankiweb();
         this.onlinedict = new Onlinedict();
-        
+
         this.asyncPools = {};
         this.setState('disabled');
-        this.ankiConnectVer = 0;
+        this.ankiConnectVer = 5;
         this.ankiwebConnected = false;
 
         chrome.runtime.onInstalled.addListener(this.onInstalled.bind(this));
@@ -70,6 +70,8 @@ class Yomichan {
     onInstalled(details) {
         if (details.reason === 'install') {
             chrome.tabs.create({url: chrome.extension.getURL('bg/guide.html')});
+        } else if (details.reason === 'update') {
+            chrome.tabs.create({url: chrome.extension.getURL('bg/update.html')});
         }
     }
 
@@ -129,7 +131,7 @@ class Yomichan {
     }
 
     getApiVersion() {
-        return 2;
+        return 5;
     }
 
     tabInvokeAll(action, params) {
@@ -178,7 +180,7 @@ class Yomichan {
             xhr.open('POST', 'http://127.0.0.1:8765');
             xhr.send(JSON.stringify({action, params}));
         } else if (this.options.enableAnkiWeb){
-            this.invokeAnkiweb(action, params, callback);            
+            this.invokeAnkiweb(action, params, callback);
         } else {
             callback(null);
         }
@@ -210,7 +212,7 @@ class Yomichan {
         }
     }
 
-    
+
     formatField(field, definition, g_index, mode) {
         const tags = [
             'audio',
@@ -377,7 +379,7 @@ class Yomichan {
     api_renderText({template, data, callback}) {
         callback(Handlebars.templates[template](data));
     }
-    
+
     connectAnkiweb(callback) {
         this.ankiweb.connect(this.options.ankiwebUsername, this.options.ankiwebPassword, callback);
     }
