@@ -43,7 +43,7 @@ function hackTagsColor() {
     [].forEach.call(document.querySelectorAll('.term-glossary'), function(div) {
     div.innerHTML = div.innerHTML.replace(/\b[a-z]+\./g, function(symbol) {
             if(colorMap[symbol]) {
-                return `<span class="highlight" style="color:${colorMap[symbol]}">${symbol}</span>`;
+                return `<span class="highlight" style="background-color:${colorMap[symbol]}">${symbol}</span>`;
             } else {
                 return symbol;
             }
@@ -112,5 +112,12 @@ function api_setActionState({index, state, sequence}) {
     }
 }
 
+function onMouseWheel(e){
+    document.querySelector('html').scrollTop -= e.wheelDeltaY / 3;
+    e.preventDefault();
+}
+
 document.addEventListener('DOMContentLoaded', onDomContentLoaded, false);
 window.addEventListener('message', onMessage);
+window.addEventListener('wheel', onMouseWheel);
+

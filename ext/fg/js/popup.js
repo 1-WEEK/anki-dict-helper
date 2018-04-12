@@ -39,12 +39,12 @@ class Popup {
         const popupRect = this.popup.getBoundingClientRect();
 
         let posX = elementRect.left;
-        if (posX + popupRect.width >= window.innerWidth) {
-            posX = window.innerWidth - popupRect.width;
+        if (posX + popupRect.width >= document.documentElement.clientWidth) {
+            posX = document.documentElement.clientWidth - popupRect.width;
         }
 
         let posY = elementRect.bottom + this.offset;
-        if (posY + popupRect.height >= window.innerHeight) {
+        if (posY + popupRect.height >= document.documentElement.clientHeight) {
             posY = elementRect.top - popupRect.height - this.offset;
         }
 
@@ -63,7 +63,7 @@ class Popup {
         }
 
         this.popup.contentWindow.scrollTo(0, 0);
-        
+
         const doc = this.popup.contentDocument;
         doc.open();
         doc.write(content);
@@ -86,6 +86,8 @@ class Popup {
         this.popup.addEventListener('mousedown', (e) => e.stopPropagation());
         this.popup.addEventListener('scroll', (e) => e.stopPropagation());
 
-        document.body.appendChild(this.popup);
+        let simpread = document.querySelector('.simpread-read-root');
+        let root = simpread ? simpread : document.body;
+        root.appendChild(this.popup);
     }
 }

@@ -10,13 +10,13 @@
         font-family: "Segoe UI", Arial, "Microsoft Yahei", sans-serif;
         font-size: 14px;
         width: 380px;
-        height: 380px;
         border-radius: 5px;
         margin: 5px auto;
         padding: 15px;
         background: #fefefe;
         border: 1px solid;
         border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+        overflow: auto;
     }
 
     h3 {
@@ -47,34 +47,39 @@
         vertical-align: baseline;
     }
 
-    .notice {
+    a {
+        text-decoration: none;
+    }
+
+    b {
         color: blue;
     }
 </style>
 
 <body>
     <div class="container">
-        <h3>Anki划词制卡助手-使用说明</h3>
-        <p>欢迎使用本插件，以下是插件简要说明，如需完整文档或插件最新信息，请访问
+        <h3>Anki划词助手-升级说明</h3>
+        <p>您已升级至Anki划词助手0.99.9版本。如需完整文档或插件最新信息，请访问
             <a href="http://www.laohuang.net/20160817/anki-dict-helper-chrome-extension/" target="_blank">插件教程</a>或者
             <a href="https://github.com/ninja33/anki-dict-helper" target="_blank">项目主页</a>
         </p>
+        <b>0.99.9版本</b>
         <ol>
-            <li>左击
-                <img src="../img/icon16.png" alt>图标可以
-                <b>"禁用"</b>或者
-                <b>"激活"</b>插件。</li>
-            <li>右击
-                <img src="../img/icon16.png" alt>图标，然后选择
-                <b>"选项"</b>可打开选项页，以进一步定制化插件。</li>
-            <li>按住键盘
-                <b>Shift</b>键或者鼠标中键，可在当前鼠标光标处划词翻译。(页面须完全加载完成)</li>
+            <li>修复选项页中牌组和模板名显示不正常的问题(ankiconnect2.0兼容性)</li>
         </ol>
-        <p>提示：ankiconnect官版不支持同一单词重复制卡。想重复制卡，可在ankiconnect.py文件中搜寻dupeOrEmpty字样的判重函数，该行前用#号注释即可。</p>
-        <p>另:敬请关注作者另一划词插件-
+        <b>0.99.8版本</b>
+        <ol>
+            <li>Anki划词助手已兼容ankiconnect 2.0-5.0版本。</li>
+            <li>修复鼠标在弹窗内滚动,引起外部页面滚动的BUG。</li>
+            <li>修复弹窗在页面右侧显示被部分遮挡的BUG。</li>
+            <li>适配Chrome阅读插件"简阅"。</li>
+        </ol>
+        <p>注: ankiconnect官版不支持同一单词重复制卡。想重复制卡，可在ankiconnect.py文件中搜寻dupeOrEmpty字样的判重函数，该行前用#号注释即可。</p>
+        <p>另: 敬请关注作者另一划词插件-
             <a href="https://github.com/ninja33/ODH" target="_blank">
                 <b>在线词典助手</b>
-            </a>，支持手动划词，词组识别，和多词典(柯林斯、朗文、剑桥等)在线切换。</p>
+            </a>，支持手动划词，词组识别，和多词典(柯林斯、朗文、剑桥等)在线切换。
+        </p>
         <p style="float:right">作者:
             <a href='http://www.laohuang.net' target="_blank">你家老黄</a>
         </p>
